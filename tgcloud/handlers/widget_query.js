@@ -10,7 +10,7 @@ export default async function (query) {
       query.chat.id !== query.from.id || !query.message_id) {
     return answer('Este protótipo funciona somente no privado.');
   }
-  if (query.data !== 'refresh' || (query.type && query.type.type !== 'data')) {
+  if (query.data !== 'refresh' || !query.type || query.type.type !== 'data') {
     return answer('Ação desconhecida.');
   }
   if (!isOwner(query.from.id) && (await isSilent())) {
