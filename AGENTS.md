@@ -25,6 +25,15 @@ in this project.
 - `README.md` describes the repository and how to navigate its baseline. `CHANGELOG.md` records meaningful changes in human-readable form. Update the changelog when introducing or changing a feature, integration, behavior, or documentation policy; distinguish unmerged/unreleased work from deployed releases.
 - If a snapshot differs from the live official source, investigate and record the difference; do not silently modify the archived snapshot. Test SDK and runtime support independently.
 
+## Public documentation and change control
+
+- **Write for the audience.** `README.md` is the public presentation of myJAM: purpose, user-visible capabilities, and project direction. Do not turn it into a deployment guide, architecture inventory, or catalogue of internal implementation details.
+- **Be accurate without oversharing.** `CHANGELOG.md` records meaningful capability changes, compatibility with official documentation, validation status, and user-relevant limitations. Explain impacts in plain language; avoid disclosing credentials, private endpoints, sensitive configurations, or actionable details of unresolved security weaknesses. Record sensitive findings through an appropriate non-public channel instead.
+- **Open source does not waive security hygiene.** Never commit secrets, access tokens, private user data, or production diagnostics. Do not assume information is safe to publish merely because the repository is public.
+- **Preserve the official baseline.** The archived files in `docs/official/` retain their original names and contents. New snapshots should include their source and capture date; differences from current official docs must be investigated and recorded outside the preserved snapshots.
+- **Require explicit authorization.** Changes may be prepared in a feature branch for review, but do not merge into the default branch, deploy to production, migrate production data, or perform other live changes without the project owner's explicit approval. Documentation edits in the working branch are not a production release.
+- **No inflated claims.** Distinguish proposed, implemented, verified, and released capabilities. Verify real behavior before stating that an integration is supported.
+
 ## Ground rules
 
 Code already in this repo is not itself a source of truth — don't base a fix
