@@ -2,26 +2,22 @@
 
 **Your music, your story.**
 
-myJAM is an independent music experience built around the songs, artists, and albums that matter to you. It brings listening activity and music discoveries into Telegram in a more personal, interactive way.
+myJAM is an open-source music experience that brings listening activity and discovery into Telegram. It's built for people who want a more personal way to connect with the songs, artists, and albums they enjoy.
 
-## Discover your listening world
+## Music, made personal
 
-- **Now playing:** see the music associated with your listening activity.
-- **Music insights:** explore tracks, artists, albums, and listening trends.
-- **Shareable experiences:** turn music moments into content you can share.
-- **Interactive discovery:** explore music through conversational and visual experiences.
+- **Now playing:** keep up with your listening moments.
+- **Music insights:** explore the tracks, artists, and albums that shape your taste.
+- **Sharing:** bring your music moments into conversations.
+- **Discovery:** find new ways to explore what you listen to.
 
-Some experiences depend on linking a supported music account. Features and availability may evolve.
+Available experiences may vary as myJAM evolves.
 
-## An evolving experience
+## Growing with the music
 
-myJAM is an original, independently developed project. We continue to explore ways to make music discovery more expressive, useful, and engaging.
+myJAM is an independent project in active development. New experiences and improvements are explored with an emphasis on usability, creativity, and respect for the people who use it.
 
-For a readable record of capabilities, improvements, compatibility work, and known limitations, see the [Changelog](CHANGELOG.md).
-
-## Project and intellectual property
-
-myJAM is an original project. Its name, identity, content, and implementation may be subject to applicable intellectual-property rights. Public availability of this repository does not, by itself, grant permission to reuse proprietary elements. Any permissions to use code or assets are governed by the applicable license or other express authorization.
+Follow the project's progress, new capabilities, and compatibility updates in the [Changelog](CHANGELOG.md).
 
 ---
 
