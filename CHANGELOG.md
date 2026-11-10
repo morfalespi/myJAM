@@ -1,42 +1,42 @@
 # Changelog
 
-A human-readable history of **what myJAM can do, how it evolves, which official platform capabilities it follows, and what remains limited or unverified**.
+A readable record of **myJAM's evolution**, including new experiences, compatibility with official platform documentation, validation progress, and known user-facing limitations.
 
-This file records repository development separately from actual deployment. It does not claim production availability without verification. Earlier history will be added only when supported by commits or other project records.
+**Status matters:** a feature described here may be proposed, implemented in a development branch, verified, or released. Those stages are not interchangeable. Security-sensitive implementation details and unresolved vulnerability information do not belong in this public history.
 
 ## [Unreleased] — November 10, 2026
 
-### Project evolution
-- Introduced an experimental **myJAM Live Card**, designed to display a listening snapshot directly inside a Telegram conversation.
-- Added an isolated `/widgettest` entry point for the prototype. The existing `/playing` experience is unchanged.
-- The prototype includes views for the current or recent song, its album, and listening statistics, plus an action intended to refresh the displayed information.
+### New experiences
+- **Live Card (experimental):** an interactive music card designed to bring listening information into a Telegram conversation.
+- Initial card concept includes music, album, listening insights, and an update action.
+- The experiment is separate from the existing music experience and does not replace it.
 
-### Official platform alignment
-- Added dated, unmodified snapshots of the official [Telegram Widgets](docs/official/2026-11-10-182003-vcpa.md) and [Telegram Bot API](docs/official/2026-11-10-182020-b3h3.md) documentation to the reference baseline.
-- The prototype targets **Telegram Bot API 10.4** widget capabilities, including sending widgets, handling widget requests, responding to those requests, and updating widget state.
-- Updated project guidance so that archived documentation remains attributable and unchanged, while newer official documentation and actual runtime tests take precedence when validating compatibility.
+### Documentation and platform alignment
+- Added preserved reference snapshots for [Telegram Widgets](docs/official/2026-11-10-182003-vcpa.md) and [Telegram Bot API](docs/official/2026-11-10-182020-b3h3.md), extracted on November 10, 2026.
+- Began adapting the Live Card experiment to the capabilities introduced in **Telegram Bot API 10.4**.
+- Established a documentation policy: original official-source snapshots are preserved, while compatibility claims are checked against current official documentation and actual platform behavior.
 
-### Capabilities and current status
-| Area | Repository status | Confirmed availability |
+### Capability status
+
+| Capability | Stage | Notes |
 | --- | --- | --- |
-| Existing music features | Existing project functionality; not replaced by this work | Not revalidated in this change |
-| Live Card interface | Initial implementation in experimental branch | Not yet tested in Telegram |
-| Last.fm data in Live Card | Integration code drafted, with demonstration fallback | Not yet tested end-to-end |
-| Widget refresh | Request handler and state-update flow drafted | Not yet tested end-to-end |
-| Bot API 10.4 integration | Implemented against archived API reference | Serverless SDK compatibility not confirmed |
+| Existing music experience | Existing | Not replaced or revalidated as part of this experiment |
+| Live Card presentation | Implemented in development branch | Awaiting real-device validation |
+| Music information in Live Card | Prototype | End-to-end behavior not yet verified |
+| Interactive updates | Prototype | Platform integration not yet verified |
+| Bot API 10.4 compatibility | Under evaluation | Support in the project runtime has not yet been confirmed |
 
-### Known limitations and validation pending
-- Telegram currently restricts production widgets to private chats with the bot; the prototype deliberately follows that constraint.
-- The Telegram Serverless runtime and SDK must be checked for support of the new widget methods and `widget_query` handler.
-- The widget HTML must be checked against official size and compression limits.
-- Request fields, event payloads, Last.fm refresh, and live rendering still require verification.
-- **No deployment, production rollout, or merge is claimed.**
+### Current limitations
+- The Live Card remains **experimental** and is not presented as a released feature.
+- Telegram's current production availability for Widgets is limited to private conversations with bots.
+- Compatibility, rendering, and interactive behavior require real-world validation before release.
+- No production deployment or merge is claimed.
 
-### Documentation and governance
-- Reframed the root README as a public-facing presentation rather than an implementation guide.
-- Established this changelog to record capability changes, compatibility status, and limitations in plain language.
-- Established `docs/official/` as the preserved baseline of official-reference snapshots.
+### Project documentation
+- Updated the public README to focus on the experience and its value rather than internal implementation.
+- Updated contributor and agent guidance to protect sensitive operational information and require explicit approval for production changes.
+- Introduced this changelog to make the project's evolution and validation status understandable over time.
 
-## Earlier project history
+## Earlier history
 
-myJAM existed before this changelog. Previous milestones will be documented only after reviewing the repository's history, without inventing dates, releases, or capabilities.
+myJAM predates this changelog. Earlier milestones will be added only when supported by repository history or other reliable project records, without inventing dates or releases.
