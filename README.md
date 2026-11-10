@@ -1,41 +1,28 @@
 # myJAM
 
-Telegram bot and Mini App for exploring music through Last.fm, running on Telegram Serverless.
+**Your music, your story.**
 
-## Project structure
+myJAM is an independent music experience built around the songs, artists, and albums that matter to you. It brings listening activity and music discoveries into Telegram in a more personal, interactive way.
 
-- `tgcloud/`: bot handlers, endpoints, shared libraries, and database schema.
-- `web/`: Mini App front-end.
-- `docs/`: project documentation and technical references.
-- `docs/official/`: **reference baseline**, containing dated snapshots extracted from official source pages. Preserve the snapshots verbatim, including their filenames, source URLs, and extraction dates.
-- `AGENTS.md`: implementation rules and source-of-truth hierarchy for contributors and coding assistants.
-- `CHANGELOG.md`: human-readable history of repository changes.
+## Discover your listening world
 
-## Reference baseline
+- **Now playing:** see the music associated with your listening activity.
+- **Music insights:** explore tracks, artists, albums, and listening trends.
+- **Shareable experiences:** turn music moments into content you can share.
+- **Interactive discovery:** explore music through conversational and visual experiences.
 
-The `docs/official/` folder contains archival copies of official documentation, not project-authored summaries. Its filenames reflect how the source pages were captured and do not need to be normalized. Each snapshot records its original URL and extraction date. When current behavior differs from a snapshot, check the live official page and document the discrepancy rather than silently rewriting the archive.
+Some experiences depend on linking a supported music account. Features and availability may evolve.
 
-For the Bot API 10.4 widget experiment, the following snapshots were added on November 10, 2026:
+## An evolving experience
 
-- [Telegram Widgets snapshot](docs/official/2026-11-10-182003-vcpa.md), source: https://core.telegram.org/bots/widgets
-- [Telegram Bot API snapshot](docs/official/2026-11-10-182020-b3h3.md), source: https://core.telegram.org/bots/api
+myJAM is an original, independently developed project. We continue to explore ways to make music discovery more expressive, useful, and engaging.
 
-Other baseline documents cover Telegram Serverless, the Bot API, and Mini Apps. Consult [AGENTS.md](AGENTS.md) for the full source and testing rules.
+For a readable record of capabilities, improvements, compatibility work, and known limitations, see the [Changelog](CHANGELOG.md).
 
-## Development
+## Project and intellectual property
 
-Install project dependencies, then use the Telegram Serverless CLI for inspection and testing:
+myJAM is an original project. Its name, identity, content, and implementation may be subject to applicable intellectual-property rights. Public availability of this repository does not, by itself, grant permission to reuse proprietary elements. Any permissions to use code or assets are governed by the applicable license or other express authorization.
 
-```sh
-npm install
-npx tgcloud status
-npx tgcloud run <module> '{}'
-```
+---
 
-Deployments are explicit: `npx tgcloud push`. Database migrations are separate: `npx tgcloud migrate`. See `AGENTS.md` for runtime restrictions and validation requirements.
-
-## Experimental work
-
-The `feat/widgettest-bot-api-10-4` branch introduces a **draft** `/widgettest` Live Card prototype using Telegram Bot API 10.4 widgets. It does **not** replace `/playing`. Support for the new widget methods and update handlers in the deployed Serverless SDK has not yet been verified. The prototype is not described here as deployed or production-ready.
-
-See [CHANGELOG.md](CHANGELOG.md) for dated repository changes.
+*Built for people who experience music as more than a playlist.*
