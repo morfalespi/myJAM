@@ -9,6 +9,7 @@ A readable record of **myJAM's evolution**, including new experiences, compatibi
 ### New experiences
 - **Live Card (experimental):** an interactive music card designed to bring listening information into a Telegram conversation.
 - Initial card concept includes music, album, listening insights, and an update action.
+- Refined the experimental card into a compact layout: the **myJAM LIVE** title serves as the refresh control, the repeated track description is removed from the Music tab, and the widget height follows its content.
 - The experiment is separate from the existing music experience and does not replace it.
 
 ### Documentation and platform alignment
