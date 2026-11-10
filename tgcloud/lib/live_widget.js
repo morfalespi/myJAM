@@ -1,47 +1,7 @@
 // Protótipo isolado do Live Card (Bot API 10.4). Não modifica /playing.
-import { api, fetch } from 'sdk';
-import { LASTFM_API_KEY } from './config.js';
-import { getLinked } from './store.js';
-import { getRecentTrack, getUserTrackPlays } from './lastfm.js';
-
-const DEMO = { name: 'Get Lucky', artist: 'Daft Punk', album: 'Random Access Memories', nowPlaying: false, plays: 42 };
-
-// Cada campo de texto recebe um limite próprio em bytes depois do escape JSON.
-// Isso mantém chat_data abaixo dos 1024 bytes exigidos pela Bot API.
-function utf8Length(value) {
-  let bytes = 0;
-  for (const ch of value) {
-    const code = ch.codePointAt(0);
-    bytes += code < 0x80 ? 1 : code < 0x800 ? 2 : code < 0x10000 ? 3 : 4;
-  }
-  return bytes;
-}
-
-function widgetText(value, maxBytes) {
-  let output = '';
-  let bytes = 0;
-  for (const ch of typeof value === 'string' ? value : '') {
-    const charBytes = utf8Length(JSON.stringify(ch)) - 2;
-    if (bytes + charBytes > maxBytes) break;
-    output += ch;
-    bytes += charBytes;
-  }
-  return output;
-}
-
-export async function widgetState(userId) {
-  const linked = await getLinked(userId);
-  if (!linked || !LASTFM_API_KEY) {
-    return { track: DEMO, mode: 'demo', updatedAt: Date.now() };
-  }
-  const track = await getRecentTrack(linked.lastfmUser, LASTFM_API_KEY, fetch);
-  if (!track) return { track: null, mode: 'live', updatedAt: Date.now() };
-  const plays = await getUserTrackPlays(track.artist, track.name, linked.lastfmUser, LASTFM_API_KEY, fetch);
-  return {
-    track: { name: widgetText(track.name, 240), artist: widgetText(track.artist, 220), album: widgetText(track.album, 220), nowPlaying: !!track.nowPlaying, plays: Number(plays) || 0 },
-    mode: 'live', updatedAt: Date.now(),
-  };
-}
+import { api } from 'sdk';
+import { widgetState, DEMO_TRACK } from './widget_data.js';
+export { widgetState } from './widget_data.js';
 
 // HTML autocontido: QuickJS do Telegram não tem acesso à rede nem a scripts externos.
 export const WIDGET_HTML = [
@@ -100,7 +60,7 @@ export async function widgettest(message) {
     state = await widgetState(message.from.id);
   } catch (e) {
     console.error('widgettest: Last.fm indisponível', e);
-    state = { track: DEMO, mode: 'demo', updatedAt: Date.now() };
+    state = { track: DEMO_TRACK, mode: 'demo', updatedAt: Date.now() };
   }
   return api.sendWidget({
     chat_id: message.chat.id,
