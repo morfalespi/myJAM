@@ -15,6 +15,7 @@ A readable record of **myJAM's evolution**, including new experiences, compatibi
 ### Documentation and platform alignment
 - Added preserved reference snapshots for [Telegram Widgets](docs/official/2026-11-10-182003-vcpa.md) and [Telegram Bot API](docs/official/2026-11-10-182020-b3h3.md), extracted on November 10, 2026.
 - Began adapting the Live Card experiment to the capabilities introduced in **Telegram Bot API 10.4**.
+- Aligned the experimental widget with the archived API contract: supported touch behavior, bounded message-state text, required query type validation, and consistent refresh feedback when updates and responses arrive in either order.
 - Established a documentation policy: original official-source snapshots are preserved, while compatibility claims are checked against current official documentation and actual platform behavior.
 
 ### Capability status
