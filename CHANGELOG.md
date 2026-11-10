@@ -11,6 +11,7 @@ A readable record of **myJAM's evolution**, including new experiences, compatibi
 - Initial card concept includes music, album, listening insights, and an update action.
 - Refined the experimental card into a compact layout: the **myJAM LIVE** title serves as the refresh control, the repeated track description is removed from the Music tab, and the widget height follows its content.
 - The experiment is separate from the existing music experience and does not replace it.
+- Isolated the experimental widget's music retrieval and refresh rules from existing bot features. The experiment reads existing account links and settings without changing their implementations.
 
 ### Documentation and platform alignment
 - Added preserved reference snapshots for [Telegram Widgets](docs/official/2026-11-10-182003-vcpa.md) and [Telegram Bot API](docs/official/2026-11-10-182020-b3h3.md), extracted on November 10, 2026.
