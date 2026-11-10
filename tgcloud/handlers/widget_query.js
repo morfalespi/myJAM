@@ -1,8 +1,6 @@
 // Handler do update.widget_query da Bot API 10.4.
 import { api, BotApiError } from 'sdk';
-import { widgetState } from '../lib/live_widget.js';
-import { isOwner } from '../lib/config.js';
-import { isSilent } from '../lib/store.js';
+import { widgetState, widgetRefreshAllowed } from '../lib/widget_data.js';
 
 export default async function (query) {
   const answer = (data) => api.answerWidgetQuery({ widget_query_id: query.id, data });
@@ -13,7 +11,7 @@ export default async function (query) {
   if (query.data !== 'refresh' || !query.type || query.type.type !== 'data') {
     return answer('Ação desconhecida.');
   }
-  if (!isOwner(query.from.id) && (await isSilent())) {
+  if (!(await widgetRefreshAllowed(query.from.id))) {
     return answer('Bot em modo silencioso.');
   }
 
