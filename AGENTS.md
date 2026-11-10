@@ -18,6 +18,13 @@ There is no server to run locally and no `node_modules` to import from at runtim
 the only things available inside a module are the platform SDK and other modules
 in this project.
 
+## Documentation baseline and change history
+
+- `docs/official/` is the project's **official-reference baseline**: dated, source-attributed archival captures, not prose maintained by this project. Preserve existing snapshots verbatim, including filenames, source URLs, and extraction dates. Do not rename, rewrite, or reformat them to fit a convention.
+- The November 10, 2026 Bot API 10.4 references include `docs/official/2026-11-10-182003-vcpa.md` (Telegram Widgets) and `docs/official/2026-11-10-182020-b3h3.md` (Telegram Bot API). These are snapshots, not proof that the installed Serverless SDK supports every new method.
+- `README.md` describes the repository and how to navigate its baseline. `CHANGELOG.md` records meaningful changes in human-readable form. Update the changelog when introducing or changing a feature, integration, behavior, or documentation policy; distinguish unmerged/unreleased work from deployed releases.
+- If a snapshot differs from the live official source, investigate and record the difference; do not silently modify the archived snapshot. Test SDK and runtime support independently.
+
 ## Ground rules
 
 Code already in this repo is not itself a source of truth — don't base a fix
