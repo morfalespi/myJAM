@@ -6,6 +6,29 @@ import { getRecentTrack, getUserTrackPlays } from './lastfm.js';
 
 const DEMO = { name: 'Get Lucky', artist: 'Daft Punk', album: 'Random Access Memories', nowPlaying: false, plays: 42 };
 
+// Cada campo de texto recebe um limite próprio em bytes depois do escape JSON.
+// Isso mantém chat_data abaixo dos 1024 bytes exigidos pela Bot API.
+function utf8Length(value) {
+  let bytes = 0;
+  for (const ch of value) {
+    const code = ch.codePointAt(0);
+    bytes += code < 0x80 ? 1 : code < 0x800 ? 2 : code < 0x10000 ? 3 : 4;
+  }
+  return bytes;
+}
+
+function widgetText(value, maxBytes) {
+  let output = '';
+  let bytes = 0;
+  for (const ch of typeof value === 'string' ? value : '') {
+    const charBytes = utf8Length(JSON.stringify(ch)) - 2;
+    if (bytes + charBytes > maxBytes) break;
+    output += ch;
+    bytes += charBytes;
+  }
+  return output;
+}
+
 export async function widgetState(userId) {
   const linked = await getLinked(userId);
   if (!linked || !LASTFM_API_KEY) {
@@ -15,7 +38,7 @@ export async function widgetState(userId) {
   if (!track) return { track: null, mode: 'live', updatedAt: Date.now() };
   const plays = await getUserTrackPlays(track.artist, track.name, linked.lastfmUser, LASTFM_API_KEY, fetch);
   return {
-    track: { name: track.name, artist: track.artist, album: track.album || '', nowPlaying: !!track.nowPlaying, plays: Number(plays) || 0 },
+    track: { name: widgetText(track.name, 240), artist: widgetText(track.artist, 220), album: widgetText(track.album, 220), nowPlaying: !!track.nowPlaying, plays: Number(plays) || 0 },
     mode: 'live', updatedAt: Date.now(),
   };
 }
