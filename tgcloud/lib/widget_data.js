@@ -11,7 +11,7 @@ const API = 'https://ws.audioscrobbler.com/2.0/';
 const USER_AGENT = 'myJAMrobot/1.0 (Telegram bot; https://t.me/myJAMrobot)';
 const RETRY_CODES = [8, 11, 16]; // Erros temporários conforme Last.fm
 const STOP_CODES = [26, 29]; // Chave suspensa / excesso de requisições
-const DEMO_TRACK = {
+export const DEMO_TRACK = {
   name: 'Get Lucky', artist: 'Daft Punk', album: 'Random Access Memories',
   nowPlaying: false, plays: 42,
 };
