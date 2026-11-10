@@ -24,7 +24,7 @@ export async function widgetState(userId) {
 export const WIDGET_HTML = [
   '<!doctype html><html><head><style>',
   '*{box-sizing:border-box}body{margin:0;padding:14px;font-family:system-ui,sans-serif;color:var(--tg-theme-text-color)}',
-  ".head{display:flex;justify-content:space-between;align-items:center;gap:8px}.brand{display:inline-flex;align-items:center;gap:5px;font:800 12px system-ui,sans-serif;letter-spacing:1px;color:var(--tg-theme-text-color);border:0;background:transparent;margin:-5px 0 -5px -5px;padding:5px;border-radius:8px;cursor:pointer;text-align:left;touch-action:manipulation}",
+  ".head{display:flex;justify-content:space-between;align-items:center;gap:8px}.brand{display:inline-flex;align-items:center;gap:5px;font:800 12px system-ui,sans-serif;letter-spacing:1px;color:var(--tg-theme-text-color);border:0;background:transparent;margin:-5px 0 -5px -5px;padding:5px;border-radius:8px;cursor:pointer;text-align:left;touch-action:auto}",
   ".brand .refresh-icon{font-size:13px;font-weight:500;color:var(--tg-theme-hint-color)}.brand:active{opacity:.6}.brand.updating .refresh-icon{animation:spin .65s linear infinite}",
   "@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.brand.updating .refresh-icon{animation:none}}",
   '.tag{font-size:10px;color:var(--tg-theme-hint-color)}.art{margin:16px 0;padding:17px;border-radius:16px;background:var(--tg-theme-secondary-bg-color)}',
